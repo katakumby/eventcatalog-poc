@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules           # keep container node_modules separate
+    # command: npm install            # e.g., "dev": "nodemon src/index.js"
+    command: sh -c "npm install &&
+             npm run dev"
+    ports:
+      - "3000:3000"

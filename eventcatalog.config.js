@@ -1,10 +1,13 @@
 /** @type {import('@eventcatalog/core/bin/eventcatalog.config').Config} */
 export default {
   title: 'EventCatalog',
-  tagline: 'Discover, Explore and Document your Event Driven Architectures',
-  organizationName: 'eventorg',
+  tagline: 'This internal platform provides a comprehensive view of our event-driven architecture across all systems. Use this portal to discover existing domains, explore services and their dependencies, and understand the message contracts that connect our infrastructure',
+  organizationName: 'BankINC',
   homepageLink: 'https://eventcatalog.dev/',
   editUrl: 'https://github.com/boyney123/eventcatalog-demo/edit/master',
+  // Supports static or server. Static renders a static site, server renders a server side rendered site
+  // large catalogs may benefit from server side rendering
+  output: 'static',
   // By default set to false, add true to get urls ending in /
   trailingSlash: false,
   // Change to make the base url of the site different, by default https://{website}.com/docs,
@@ -18,10 +21,22 @@ export default {
   },
   docs: {
     sidebar: {
-      // Should the sub heading be rendered in the docs sidebar?
-      showPageHeadings: true
-    }
+      // TREE_VIEW will render the DOCS as a tree view and map your file system folder structure
+      // LIST_VIEW will render the DOCS that look familiar to API documentation websites
+      type: 'LIST_VIEW'
+    },
+  },
+  // Enable RSS feed for your eventcatalog
+  rss: {
+    enabled: true,
+    // number of items to include in the feed per resource (event, service, etc)
+    limit: 20
+  },
+  // This lets you copy markdown contents from EventCatalog to your clipboard
+  // Including schemas for your events and services
+  llmsTxt: {
+    enabled: true,
   },
   // required random generated id used by eventcatalog
-  cId: '6c10ccf5-91b8-4c1b-9167-938e089186d4'
+  cId: 'c58c4a64-7bbb-48c5-8b0b-95b75d3caa3b'
 }
